@@ -17,8 +17,8 @@ Welcome to Zmby, a text-based zombie survival game.
 == Insert story text ==
 
 From here you can run:
-new  - Create a new game
-load - Load an existing game
+new_game <file>  - Create a new game
+load_game <file> - Load an existing game
 
 At any point, you can type "help" to get a list of commands you can run.
 

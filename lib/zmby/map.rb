@@ -1,8 +1,9 @@
 require 'zmby/locationFactory'
 
 class Map
-	def initialize
+	def initialize(filename)
 		@map = []
+		self.load(filename)
 	end
 	def load(filename)
 		factory = LocationFactory.instance

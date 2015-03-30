@@ -12,6 +12,7 @@ module Zmby
 		def initialize
 			@currentPlayer = Zmby::Character.new
 			@actions = DEFAULTMOVES
+			@map = nil
 		end
 
 		# Commands
@@ -27,6 +28,13 @@ module Zmby
 		def heal
 			@currentPlayer.heal(10)
 			@currentPlayer.health
+		end
+
+		def new_game(map)
+			@map = Map.new(map)
+		end
+		def map
+			@map.to_s
 		end
 
 		private

@@ -26,6 +26,11 @@ To run the program:
     $ ruby -Ilib bin/zmby
 ```
 
+Then to create a new game:
+```
+	> new_game maps/1.txt
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/zmby/fork )
