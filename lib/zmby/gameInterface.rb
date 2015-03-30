@@ -1,16 +1,17 @@
 require 'singleton'
+require 'zmby/game'
 
 class GameInterface
 	include Singleton
 
 	def initialize
-		@player = Zmby::Character.new
+		@game = Zmby::Game.new
 	end
 
 	def handleCommand(input)
 		case input
 		when /health/,/hp/
-			puts @player.health
+			@game.getHealth
 		when /(drive|move) (.*)/
 			movementType = $1.to_sym
 			direction = $2
@@ -18,7 +19,7 @@ class GameInterface
 		when /search/
 			puts "search the area"
 		when /heal/
-			@player.heal(10)
+			@game.healPlayer(10)
 			puts @player.health
 		when /fortify/
 			puts "fortify"
