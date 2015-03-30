@@ -6,7 +6,7 @@ module Zmby
 		def initialize(*args)
 			@max_health = 100
 			@current_health = 100
-			@x = 4	
+			@x = 4
 			@y = 2
 		end
 

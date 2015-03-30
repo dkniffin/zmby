@@ -1,5 +1,8 @@
 require 'singleton'
 
+require 'zmby/character'
+require 'zmby/map'
+
 module Zmby
 	class Game
 		include Singleton
@@ -11,22 +14,30 @@ module Zmby
 			@actions = DEFAULTMOVES
 		end
 
-		def getPosition
-			puts @currentPlayer.x, @currentPlayer.y
+		# Commands
+		def move(direction)
+			"Moving #{direction}"
 		end
 
-		def getHealth
+		def health
+			@currentPlayer.health
+		end
+		alias_method :hp, :health
+
+		def heal
+			@currentPlayer.heal(10)
 			@currentPlayer.health
 		end
 
-		def healPlayer(val)
-			@currentPlayer.heal(val)
-		end
+		private
+			def getPosition
+				puts @currentPlayer.x, @currentPlayer.y
+			end
 
-		def newTurn(nextPlayer)
-			@currentPlayer = nextPlayer
-			@actions = DEFAULTMOVES
-		end
+			def newTurn(nextPlayer)
+				@currentPlayer = nextPlayer
+				@actions = DEFAULTMOVES
+			end
 	end
 end
 

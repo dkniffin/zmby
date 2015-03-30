@@ -1,9 +1,6 @@
 require 'singleton'
-require 'zmby/game'
 
-require 'zmby/character'
-# require 'zmby/game'
-require 'zmby/map'
+require 'zmby/game'
 
 class GameInterface
 	include Singleton
@@ -13,42 +10,18 @@ class GameInterface
 	end
 
 	def handleCommand(input)
-		case input
-		# Game-state commands
-		when /new/
-			@m = Map.new
-			@m.load('maps/1.txt')
-		when /save/
-		when /load/
-		# In-game commands
-		when /map/
-			@m.to_s
-		when /health/,/hp/
-			@game.getHealth
-		when /(drive|move) (.*)/
-			movementType = $1.to_sym
-			direction = $2
-			speed = 1
-		when /search/
-			"search the area"
-		when /heal/
-			@game.healPlayer(10)
-		when /fortify/
-			"fortify"
-		when /give/
-			"give resources"
-		when /dropoff/
-			"dropoff resources"
-		when /pickup/
-			"pickup resources"
-		when /help(.*)/
-			command = $1.gsub(/\s+/, "")
-			#TODO: create help text
-			'Sorry, no help text yet.'
-		when 'exit'
-			exit 0
+		# Parse input into parts
+		args = input.split
+		command = args.shift.to_sym # First argument is the command
+
+		# Grab all Game's methods
+		methods = @game.public_methods
+
+		if ! methods.include? command
+			"Error: Unknown Command: #{command}"
 		else
-			'Invalid command'
+			@game.send(command,*args)
 		end
+
 	end
 end
