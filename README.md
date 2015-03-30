@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To run the program:
+
+```
+    $ ruby -Ilib bin/zmby
+```
 
 ## Contributing
 

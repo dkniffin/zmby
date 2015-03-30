@@ -10,5 +10,13 @@ module Zmby
 		def health
 			"#{@current_health} / #{@max_health}"
 		end
+
+		def heal(val)
+			@current_health += val
+		end
+
+		def hurt(val)
+			@current_health -= val
+		end
 	end
 end

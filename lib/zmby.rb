@@ -1,24 +1,22 @@
 require "zmby/version"
 require 'zmby/character'
 
+require 'zmby/gameInterface.rb'
+
 module Zmby
 	class << self
 		def run
-			player = Zmby::Character.new
+
+			game = GameInterface.instance
 
 			prompt = '> '
 
 			loop do
-			  $stdout.print(prompt)
-			  input = gets.chomp
-			  case input
-			  when /health/,/hp/
-			  	puts player.health
-			  when 'exit'
-			  	exit 0
-			  else
-			  	puts 'Invalid command'
-			  end
+				$stdout.print(prompt)
+				input = gets.chomp
+
+				output = game.handleCommand(input)
+			  	puts output
 			end
 		end
 	end
