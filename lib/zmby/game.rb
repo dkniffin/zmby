@@ -19,7 +19,7 @@ module Zmby
 			@currentPlayer.health
 		end
 
-		def HealPlayer(val)
+		def healPlayer(val)
 			@currentPlayer.heal(val)
 		end
 

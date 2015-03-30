@@ -33,7 +33,6 @@ class GameInterface
 			"search the area"
 		when /heal/
 			@game.healPlayer(10)
-			puts @player.health
 		when /fortify/
 			"fortify"
 		when /give/
