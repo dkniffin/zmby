@@ -1,37 +1,53 @@
 require 'singleton'
 
+require 'zmby/character'
+# require 'zmby/game'
+require 'zmby/map'
+
 class GameInterface
 	include Singleton
 
 	def initialize
-		@player = Zmby::Character.new
 	end
 
 	def handleCommand(input)
 		case input
+		# Game-state commands
+		when /new/
+			@m = Map.new
+			@m.load('maps/1.txt')
+		when /save/
+		when /load/
+		# In-game commands
+		when /map/
+			@m.to_s
 		when /health/,/hp/
-			puts @player.health
+			@player.health
 		when /(drive|move) (.*)/
 			movementType = $1.to_sym
 			direction = $2
 			speed = 1
 		when /search/
-			puts "search the area"
+			"search the area"
 		when /heal/
 			@player.heal(10)
-			puts @player.health
+			@player.health
 		when /fortify/
-			puts "fortify"
+			"fortify"
 		when /give/
-			puts "give resources"
+			"give resources"
 		when /dropoff/
-			puts "dropoff resources"
+			"dropoff resources"
 		when /pickup/
-			puts "pickup resources"
+			"pickup resources"
+		when /help(.*)/
+			command = $1.gsub(/\s+/, "")
+			#TODO: create help text
+			'Sorry, no help text yet.'
 		when 'exit'
 			exit 0
 		else
-			puts 'Invalid command'
+			'Invalid command'
 		end
 	end
 end
