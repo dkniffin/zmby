@@ -1,10 +1,13 @@
 module Zmby
 	class Character
 		attr_accessor :current_health, :max_health
+		attr_reader :x, :y	#x and y should be moved to the Moveable class.
 
 		def initialize(*args)
 			@max_health = 100
 			@current_health = 100
+			@x = 4	
+			@y = 2
 		end
 
 		def health
