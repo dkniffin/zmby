@@ -16,7 +16,7 @@ module Zmby
 		end
 
 		def getHealth
-			@currentPlayer.heath
+			@currentPlayer.health
 		end
 
 		def HealPlayer(val)
