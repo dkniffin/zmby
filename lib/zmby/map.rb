@@ -22,7 +22,9 @@ class Map
 	def render(x,y)
 		char_ary = @map.map {|row| row.map {|loc| loc.char }}
 		char_ary[y][x] = '!'
-		char_ary.map{|a|a.join(' ')}.join("\n")
+		ascii = char_ary.map{|a|a.join(' ')}.join("\n")
+		ascii += "\n"
+		ascii += ""
 	end
 	def getPlace(x,y)
 		@map[y][x]

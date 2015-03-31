@@ -14,8 +14,11 @@ module LocationTypeMap
 		# Bunker
 		# Bridge
 		# Tunnel
+		# Sewer (teleport between them)
 		# Parking Lot
 		# Apartments
+		# Hotel
+		# Barn
 	}
 
 	module_function
