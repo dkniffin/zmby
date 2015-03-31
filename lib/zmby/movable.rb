@@ -1,6 +1,6 @@
 module Zmby
 	class Movable
-		attr_reader :x, :y
+		attr_accessor :x, :y
 
 		def initialize
 			@x = 4

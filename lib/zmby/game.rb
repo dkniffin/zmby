@@ -17,7 +17,11 @@ module Zmby
 
 		# Commands
 		def move(direction)
-			"Moving #{direction}"
+			movePlayer(direction)
+		end
+		def drive(direction)
+			# TODO: Check for vehicle
+			movePlayer(direction,2)
 		end
 
 		def health
@@ -35,6 +39,9 @@ module Zmby
 		end
 		def map
 			@map.to_s
+		end
+		def coords
+			getPosition
 		end
 
 		def inventory
@@ -62,12 +69,25 @@ module Zmby
 
 		private
 			def getPosition
-				puts @currentPlayer.x, @currentPlayer.y
+				"#{@currentPlayer.x}, #{@currentPlayer.y}"
 			end
 
 			def newTurn(nextPlayer)
 				@currentPlayer = nextPlayer
 				@actions = DEFAULTMOVES
+			end
+
+			def movePlayer(direction,speed=1)
+				case direction
+				when 'up','r','n','north'
+					@currentPlayer.y -= 1
+				when 'down','d','s','south'
+					@currentPlayer.y += 1
+				when 'left','l','w','west'
+					@currentPlayer.x -= 1
+				when 'right','r','e','east'
+					@currentPlayer.x += 1
+				end
 			end
 	end
 end
