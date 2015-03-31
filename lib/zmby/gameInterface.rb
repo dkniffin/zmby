@@ -6,7 +6,7 @@ class GameInterface
 	include Singleton
 
 	def initialize
-		@game = Zmby::Game.instance
+		@game = Game.instance
 	end
 
 	def handleCommand(input)
