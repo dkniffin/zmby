@@ -22,4 +22,7 @@ class Map
 	def to_s
 		@map.map {|row| row.map {|loc| loc.char }.join(' ')}.join("\n")
 	end
+	def getPlace(x,y)
+		@map[y][x]
+	end
 end

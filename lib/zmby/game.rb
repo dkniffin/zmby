@@ -56,6 +56,10 @@ module Zmby
 			@currentPlayer.drop(itemName, amount)
 		end
 
+		def search
+			@map.getPlace(@currentPlayer.x,@currentPlayer.y).search
+		end
+
 		private
 			def getPosition
 				puts @currentPlayer.x, @currentPlayer.y

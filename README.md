@@ -2,22 +2,6 @@
 
 TODO: Write a gem description
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'zmby'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install zmby
-
 ## Usage
 
 To run the program:
