@@ -37,6 +37,25 @@ module Zmby
 			@map.to_s
 		end
 
+		def inventory
+			inv = @currentPlayer.inventory
+			if inv.count == 0 then puts "Inventory is empty."
+			else
+				for item in inv
+					puts item.name + ": " + item.count.to_s
+				end
+			end
+			return
+		end
+
+		def take(itemName, amount=1)
+			@currentPlayer.pickUp(itemName, amount)
+		end
+
+		def drop(itemName, amount)
+			@currentPlayer.drop(itemName, amount)
+		end
+
 		private
 			def getPosition
 				puts @currentPlayer.x, @currentPlayer.y

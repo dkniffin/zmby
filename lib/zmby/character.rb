@@ -3,6 +3,7 @@ require 'zmby/item'
 module Zmby
 	class Character < Movable
 		attr_accessor :current_health, :max_health
+		attr_reader :inventory
 
 		def initialize(*args)
 			super
@@ -24,6 +25,7 @@ module Zmby
 		end
 
 		def pickUp(itemName, amount=1)
+			amount = amount.to_i
 			#Get a list of names of items in the inventory.
 			itemNames = @inventory.map(&:name)
 
@@ -38,6 +40,7 @@ module Zmby
 		end
 
 		def drop(itemName, amount)
+			amount = amount.to_i
 			#Get a list of names of items in the inventory.
 			itemNames = @inventory.map(&:name)
 
