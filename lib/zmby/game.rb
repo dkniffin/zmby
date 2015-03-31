@@ -37,7 +37,7 @@ class Game
 		@map = Map.new(map)
 	end
 	def map
-		@map.to_s
+		@map.render(@currentPlayer.x,@currentPlayer.y)
 	end
 	def coords
 		getPosition
@@ -63,7 +63,7 @@ class Game
 	end
 
 	def search
-		@map.getPlace(@currentPlayer.x,@currentPlayer.y).search
+		@map.getLocation(@currentPlayer.x,@currentPlayer.y).search
 	end
 
 	private
@@ -87,6 +87,7 @@ class Game
 			when 'right','r','e','east'
 				@currentPlayer.x += 1
 			end
+			self.coords
 		end
 end
 

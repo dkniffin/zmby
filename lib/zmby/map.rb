@@ -19,8 +19,10 @@ class Map
 			end
 		end
 	end
-	def to_s
-		@map.map {|row| row.map {|loc| loc.char }.join(' ')}.join("\n")
+	def render(x,y)
+		char_ary = @map.map {|row| row.map {|loc| loc.char }}
+		char_ary[y][x] = '!'
+		char_ary.map{|a|a.join(' ')}.join("\n")
 	end
 	def getPlace(x,y)
 		@map[y][x]
