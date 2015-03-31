@@ -25,34 +25,40 @@ module Zmby
 		end
 
 		def pickUp(itemName, amount=1)
+			# TODO: Limit the number of items a person can carry
 			amount = amount.to_i
-			#Get a list of names of items in the inventory.
-			itemNames = @inventory.map(&:name)
 
-			#Do we already have that item in the array?
-			if i = itemNames.index(itemName)
-				#Increase that item's count. 
-				@inventory[i].addAmount(amount)
-			else
-				#Add a new item to inventory.
-				@inventory << Zmby::Item.new(itemName, amount)
+			added = false
+			@inventory.each do |item|
+				# TODO: Encapsulate this into the item class (see drop as well)
+				# If the names match
+				if item.class.name.downcase == itemName.downcase
+					item.addAmount(amount)
+					added = true
+					break
+				end
+			end
+			if !added
+				# TODO: Don't create a new item, but rather look in the
+				# current location and pull from there.
+				@inventory << Zmby::Item.new(amount)
 			end
 		end
 
 		def drop(itemName, amount)
 			amount = amount.to_i
-			#Get a list of names of items in the inventory.
-			itemNames = @inventory.map(&:name)
 
-			#Do we have that item in the array?
-			if i = itemNames.index(itemName)
-				#Subtract amount.
-				@inventory[i].removeAmount(amount)
+			removed = false
+			@inventory.each_with_index do |item,i|
+				# If the names match
+				if item.class.name.downcase == itemName.downcase
+					@inventory[i].removeAmount(amount)
 
-				#Check if we no longer have any amount of that item.
-				if @inventory[i].count == 0
-					#Remove the item from the list.
-					@inventory.delete_at(i)
+					#Check if we no longer have any amount of that item.
+					if @inventory[i].count == 0
+						#Remove the item from the list.
+						@inventory.delete_at(i)
+					end
 				end
 			end
 		end

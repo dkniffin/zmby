@@ -1,24 +1,26 @@
 module Zmby
 	class Item
-		attr_reader :name, :count, :maxAmount
-		def initialize(itemName, initialCount=1, maxAmount=1)
-			@name = itemName
-			@count = initialCount
-			@maxAmount = maxAmount
+		attr_reader :count
+		def initialize(count=1)
+			@count = count
+			@maxAmount = 1
 		end
 
 		def addAmount(amount)
 			@count += amount
-			if @count > @maxAmount 
+			if @count > @maxAmount
 				@count = @maxAmount
 			end
 		end
 
 		def removeAmount(amount)
 			@count -= amount
-			if @count < 0 
+			if @count < 0
 				@count = 0
 			end
+		end
+		def name
+			self.class.name.downcase
 		end
 	end
 end
