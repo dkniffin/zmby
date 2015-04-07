@@ -78,7 +78,7 @@ class Game
 
 		def movePlayer(direction,speed=1)
 			case direction
-			when 'up','r','n','north'
+			when 'up','u','n','north'
 				@currentPlayer.y -= 1
 			when 'down','d','s','south'
 				@currentPlayer.y += 1
