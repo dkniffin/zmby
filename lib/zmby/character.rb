@@ -3,13 +3,15 @@ require 'zmby/item'
 
 class Character < Movable
 	attr_accessor :current_health, :max_health
-	attr_reader :inventory
+	attr_reader :inventory, :name
 
-	def initialize(*args)
+
+	def initialize(name, *args)
 		super
 		@inventory = []
 		@max_health = 100
 		@current_health = 100
+		@name = name
 	end
 
 	def health

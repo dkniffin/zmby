@@ -9,9 +9,10 @@ class Game
 	DEFAULTMOVES = 4
 
 	def initialize
-		@currentPlayer = Character.new
+		@currentPlayer = nil
 		@actions = DEFAULTMOVES
 		@map = nil
+		@players = []
 	end
 
 	# Commands
@@ -35,6 +36,7 @@ class Game
 
 	def new_game(map)
 		@map = Map.new(map)
+		createCharacters()
 	end
 	def map
 		@map.render(@currentPlayer.x,@currentPlayer.y)
@@ -88,6 +90,35 @@ class Game
 				@currentPlayer.x += 1
 			end
 			self.coords
+		end
+
+		def createCharacters()
+			# Set up number of players.
+			input = ""
+			loop do
+				puts "Enter the number of players (1-4):"
+				input = gets
+				break if(input =~ /1|2|3|4/)
+				puts "Invalid input, please try again."
+			end
+
+			# Give players names.
+			input = input.to_i
+			(1..input).each do |i|
+				puts "Enter Player #{i}'s name:"
+				@players.push(Character.new(gets))
+			end
+
+			#Set the currentPlayer to the first player.
+			@currentPlayer = @players.first
+
+			#Debug stuff.
+			# puts "Players in Players array: "
+			# for player in @players
+			# 	puts player.name
+			# end
+			# puts "Current player: " + @currentPlayer.name
+			return
 		end
 end
 
