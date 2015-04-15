@@ -31,7 +31,7 @@ eoc
 				input = gets.chomp
 
 				output = game.handleCommand(input)
-			  	puts output
+		  	puts output
 			end
 		end
 	end

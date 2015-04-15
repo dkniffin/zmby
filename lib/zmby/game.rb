@@ -18,10 +18,12 @@ class Game
 	# Commands
 	def move(direction)
 		movePlayer(direction)
+		action
 	end
 	def drive(direction)
 		# TODO: Check for vehicle
 		movePlayer(direction,2)
+		action
 	end
 
 	def health
@@ -32,6 +34,7 @@ class Game
 	def heal
 		@currentPlayer.heal(10)
 		@currentPlayer.health
+		action
 	end
 
 	def new_game(map)
@@ -66,6 +69,7 @@ class Game
 
 	def search
 		@map.getLocation(@currentPlayer.x,@currentPlayer.y).search
+		action
 	end
 
 	private
@@ -73,8 +77,23 @@ class Game
 			"#{@currentPlayer.x}, #{@currentPlayer.y}"
 		end
 
-		def newTurn(nextPlayer)
-			@currentPlayer = nextPlayer
+		def getNextPlayer
+			new_player_index = (@players.index(@currentPlayer) + 1) % @players.count
+			@players[new_player_index]
+		end
+
+		def action
+			@actions -= 1
+			if @actions.zero?
+				newTurn
+			else
+				puts "You have #{@actions} actions left"
+			end
+		end
+
+		def newTurn
+			@currentPlayer = getNextPlayer
+			print "It's now #{@currentPlayer.name}'s turn \n"
 			@actions = DEFAULTMOVES
 		end
 
