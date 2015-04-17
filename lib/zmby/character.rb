@@ -4,7 +4,7 @@ require 'zmby/item'
 class Character < Movable
 	attr_accessor :current_health, :max_health
 	attr_reader :inventory, :name
-
+	INVENTORY_SIZE = 20
 
 	def initialize(name, *args)
 		super
@@ -26,40 +26,39 @@ class Character < Movable
 		@current_health -= val
 	end
 
-	def pickUp(itemName, amount=1)
-		# TODO: Limit the number of items a person can carry
-		amount = amount.to_i
-
-		added = false
+	def take(newItem)
 		@inventory.each do |item|
-			# TODO: Encapsulate this into the item class (see drop as well)
-			# If the names match
-			if item.class.name.downcase == itemName.downcase
-				item.addAmount(amount)
-				added = true
-				break
+			if item.name == newItem.name && !item.capped?
+				leftover = item.addAmount(newItem.count)
+				if leftover
+					newItem.setAmount(leftover)
+					break
+				else
+					return
+				end
 			end
 		end
-		if !added
-			# TODO: Don't create a new item, but rather look in the
-			# current location and pull from there.
-			@inventory << Item.new(amount)
+
+		if @inventory.length < INVENTORY_SIZE
+			@inventory << newItem
 		end
 	end
 
 	def drop(itemName, amount)
 		amount = amount.to_i
 
-		removed = false
-		@inventory.each_with_index do |item,i|
-			# If the names match
-			if item.class.name.downcase == itemName.downcase
-				@inventory[i].removeAmount(amount)
-
-				#Check if we no longer have any amount of that item.
+		@inventory.each_with_index do |item, i|
+			if item.name == itemName
+				amount = @inventory[i].removeAmount(amount)
 				if @inventory[i].count == 0
-					#Remove the item from the list.
 					@inventory.delete_at(i)
+					# Recursion is necessary, since when we 
+					# delete an element, we mess up the for loop.
+					# Will refactor so that it is more readable.
+					drop(itemName, amount) 
+				end
+				if !amount
+					break
 				end
 			end
 		end

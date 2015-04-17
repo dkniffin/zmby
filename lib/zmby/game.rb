@@ -2,6 +2,7 @@ require 'singleton'
 
 require 'zmby/character'
 require 'zmby/map'
+require 'zmby/itemFactory'
 
 class Game
 	include Singleton
@@ -37,7 +38,7 @@ class Game
 		action
 	end
 
-	def new_game(map)
+	def new_game(map="maps/1.txt")
 		@map = Map.new(map)
 		createCharacters()
 	end
@@ -53,23 +54,29 @@ class Game
 		if inv.count == 0 then puts "Inventory is empty."
 		else
 			for item in inv
-				puts item.name + ": " + item.count.to_s
+				puts item.class.name + ": " + item.count.to_s
 			end
 		end
 		return
 	end
 
-	def take(itemName, amount=1)
-		@currentPlayer.pickUp(itemName, amount)
+	def search
+		@map.getLocation(@currentPlayer.x,@currentPlayer.y).search
+		action
 	end
 
+	# Testing function.
 	def drop(itemName, amount)
 		@currentPlayer.drop(itemName, amount)
 	end
 
-	def search
-		@map.getLocation(@currentPlayer.x,@currentPlayer.y).search
-		action
+	# Testing function.
+	def create_item(itemName, amount=1)
+		#Instantiate the ItemFactory.
+		itemFactory = ItemFactory.instance
+		#Create the desired item.
+		newItem = itemFactory.createItem(itemName, amount)
+		@currentPlayer.take(newItem)
 	end
 
 	private
