@@ -39,7 +39,7 @@ class Item
 		# since if we have two stacks of 30 items each,
 		# and we remove an amount of 40, we want to remove
 		# 30 in a item instance, and remember we have 10
-		# more to remove.
+		# more to remove
 		@count -= amount
 		if @count < 0
 			leftover = -@count
