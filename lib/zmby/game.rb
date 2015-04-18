@@ -64,6 +64,31 @@ class Game
 		@map.getLocation(@currentPlayer.x,@currentPlayer.y).search
 		action
 	end
+	
+	def fortify(scrap_usage = 0)
+		if (scrapusage <= 0) 
+			puts "Need to put in some scrap to fortify!"
+			return
+		end
+		if (scrapusage > @currentPlayer.Scrap)
+			puts "You don't have that much scrap!"
+			return
+		end
+		
+		currentLocation = @map.getPlace(@currentPlayer.x, @currentPlayer.y)
+		@currentPlayer.Scrap -= scrap_usage
+		currentLocation.fort_level += scrap_usage
+		puts "You fortified your location. It's fortifcation level is now" + currentLocation.fort_level
+		if (currentLocation.fort_level >= 100)
+			VictoryEnd(@currentPlayer)
+		end
+		action
+		
+	end
+	
+	def VictoryEnd(winning_player)
+		puts winning_player + "finally established a base of operations. We win!"
+		#End the game, I don't actually know how.
 
 	# Testing function.
 	def drop(itemName, amount)
