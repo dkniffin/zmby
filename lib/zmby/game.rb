@@ -18,13 +18,15 @@ class Game
 
 	# Commands
 	def move(direction)
-		move_player(direction)
+		out = move_player(direction)
 		action
+		out
 	end
 	def drive(direction)
 		# TODO: Check for vehicle
-		move_player(direction,2)
+		out = move_player(direction,2)
 		action
+		out
 	end
 
 	def health
@@ -34,8 +36,8 @@ class Game
 
 	def heal
 		@current_player.heal(10)
-		@current_player.health
 		action
+		@current_player.health
 	end
 
 	def new_game(map="maps/1.txt")
@@ -168,7 +170,7 @@ class Game
 			input = input.to_i
 			(1..input).each do |i|
 				puts "Enter Player #{i}'s name:"
-				@players.push(Character.new(gets))
+				@players.push(Character.new(gets.chomp))
 			end
 
 			#Set the current_player to the first player.
