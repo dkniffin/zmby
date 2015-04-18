@@ -9,6 +9,7 @@ class Location
 			:gas => 0,
 			:materials => 0
 		}
+		@fort_level = 0
 	end
 	def char
 		LocationTypeMap.class2char(self.class)
