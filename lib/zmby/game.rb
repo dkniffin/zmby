@@ -94,8 +94,8 @@ class Game
 	end
 
 	# Testing function.
-	def drop(itemName, amount)
-		@current_player.drop(itemName, amount)
+	def drop(item_name, amount)
+		@current_player.drop(item_name, amount)
 	end
 
 	# Testing function.
