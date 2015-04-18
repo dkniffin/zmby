@@ -19,6 +19,7 @@ module LocationTypeMap
 		# Apartments
 		# Hotel
 		# Barn
+		# Church
 	}
 
 	module_function

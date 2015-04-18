@@ -61,12 +61,13 @@ class Game
 	end
 
 	def search
-		@map.getLocation(@currentPlayer.x,@currentPlayer.y).search
+		out = @map.getPlayerLocation(@currentPlayer.x,@currentPlayer.y).search
 		action
+		out
 	end
-	
+
 	def fortify(scrap_usage = 0)
-		if (scrapusage <= 0) 
+		if (scrapusage <= 0)
 			puts "Need to put in some scrap to fortify!"
 			return
 		end
@@ -74,8 +75,8 @@ class Game
 			puts "You don't have that much scrap!"
 			return
 		end
-		
-		currentLocation = @map.getPlace(@currentPlayer.x, @currentPlayer.y)
+
+		currentLocation = @map.getPlayerLocation(@currentPlayer)
 		@currentPlayer.Scrap -= scrap_usage
 		currentLocation.fort_level += scrap_usage
 		puts "You fortified your location. It's fortifcation level is now" + currentLocation.fort_level
@@ -83,12 +84,13 @@ class Game
 			VictoryEnd(@currentPlayer)
 		end
 		action
-		
+
 	end
-	
+
 	def VictoryEnd(winning_player)
 		puts winning_player + "finally established a base of operations. We win!"
 		#End the game, I don't actually know how.
+	end
 
 	# Testing function.
 	def drop(itemName, amount)
@@ -116,6 +118,7 @@ class Game
 
 		def action
 			@actions -= 1
+			random_event
 			if @actions.zero?
 				newTurn
 			else
@@ -127,6 +130,13 @@ class Game
 			@currentPlayer = getNextPlayer
 			print "It's now #{@currentPlayer.name}'s turn \n"
 			@actions = DEFAULTMOVES
+		end
+
+		def random_event
+			if @map.getPlayerLocation(@currentPlayer).combat?
+				puts "Start combat"
+				# TODO: Start a combat
+			end
 		end
 
 		def movePlayer(direction,speed=1)
@@ -143,7 +153,7 @@ class Game
 			self.coords
 		end
 
-		def createCharacters()
+		def createCharacters
 			# Set up number of players.
 			input = ""
 			loop do

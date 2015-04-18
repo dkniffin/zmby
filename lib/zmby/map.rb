@@ -26,7 +26,10 @@ class Map
 		ascii += "\n"
 		ascii += ""
 	end
-	def getPlace(x,y)
+	def getLocation(x,y)
 		@map[y][x]
+	end
+	def getPlayerLocation(player)
+		@map[player.y][player.x]
 	end
 end

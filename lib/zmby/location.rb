@@ -10,6 +10,7 @@ class Location
 			:materials => 0
 		}
 		@fort_level = 0
+		@combat_chance = 0
 	end
 	def char
 		LocationTypeMap.class2char(self.class)
@@ -22,5 +23,9 @@ class Location
 				puts "Did not find #{t}"
 			end
 		end
+	end
+
+	def combat?
+		(rand < @combat_chance)
 	end
 end
