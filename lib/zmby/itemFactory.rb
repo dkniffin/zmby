@@ -21,8 +21,8 @@ require 'zmby/items/weapons/knife'
 class ItemFactory
 	include Singleton
 
-	def createItem(itemName, amount=1)
-		case itemName
+	def createItem(item_name, amount=1)
+		case item_name
 		# Stackable resources.
 		when "Medicine"
 			Medicine.new(amount)
@@ -44,10 +44,10 @@ class ItemFactory
 		# Tools.
 
 		# Miscellaneous Items.
-		
+
 		# Otherwise, error.
 		else
-			puts "Could not create item: #{itemName}."
+			puts "Could not create item: #{item_name}."
 		end
 	end
 end

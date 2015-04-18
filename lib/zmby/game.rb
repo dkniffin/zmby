@@ -7,50 +7,50 @@ require 'zmby/itemFactory'
 class Game
 	include Singleton
 
-	DEFAULTMOVES = 4
+	START_MOVES = 4
 
 	def initialize
-		@currentPlayer = nil
-		@actions = DEFAULTMOVES
+		@current_player = nil
+		@actions = START_MOVES
 		@map = nil
 		@players = []
 	end
 
 	# Commands
 	def move(direction)
-		movePlayer(direction)
+		move_player(direction)
 		action
 	end
 	def drive(direction)
 		# TODO: Check for vehicle
-		movePlayer(direction,2)
+		move_player(direction,2)
 		action
 	end
 
 	def health
-		@currentPlayer.health
+		@current_player.health
 	end
 	alias_method :hp, :health
 
 	def heal
-		@currentPlayer.heal(10)
-		@currentPlayer.health
+		@current_player.heal(10)
+		@current_player.health
 		action
 	end
 
 	def new_game(map="maps/1.txt")
 		@map = Map.new(map)
-		createCharacters()
+		create_characters
 	end
 	def map
-		@map.render(@currentPlayer.x,@currentPlayer.y)
+		@map.render(@current_player.x,@current_player.y)
 	end
 	def coords
-		getPosition
+		get_position
 	end
 
 	def inventory
-		inv = @currentPlayer.inventory
+		inv = @current_player.inventory
 		if inv.count == 0 then puts "Inventory is empty."
 		else
 			for item in inv
@@ -61,58 +61,59 @@ class Game
 	end
 
 	def search
-		out = @map.getPlayerLocation(@currentPlayer.x,@currentPlayer.y).search
+		out = @map.get_location_of(@current_player).search
 		action
 		out
 	end
 
 	def fortify(scrap_usage = 0)
-		if (scrapusage <= 0)
+		if (scrap_usage <= 0)
 			puts "Need to put in some scrap to fortify!"
 			return
 		end
-		if (scrapusage > @currentPlayer.Scrap)
+		if (scrap_usage > @current_player.scrap)
 			puts "You don't have that much scrap!"
 			return
 		end
 
-		currentLocation = @map.getPlayerLocation(@currentPlayer)
-		@currentPlayer.Scrap -= scrap_usage
-		currentLocation.fort_level += scrap_usage
-		puts "You fortified your location. It's fortifcation level is now" + currentLocation.fort_level
-		if (currentLocation.fort_level >= 100)
-			VictoryEnd(@currentPlayer)
-		end
-		action
+		current_location = @map.get_location_of(@current_player)
+		@current_player.scrap -= scrap_usage
+		current_location.fort_level += scrap_usage
 
+		if (currentLocation.fort_level >= 100)
+			victory_end(@current_player)
+		else
+			action
+			"You fortified your location. It's fortifcation level is now #{current_location.fort_level}"
+		end
 	end
 
-	def VictoryEnd(winning_player)
-		puts winning_player + "finally established a base of operations. We win!"
-		#End the game, I don't actually know how.
+	def victory_end(winning_player)
+		puts "#{winning_player} has established a base of operations. We win!"
+		# TODO: End the game, I don't actually know how.
 	end
 
 	# Testing function.
 	def drop(itemName, amount)
-		@currentPlayer.drop(itemName, amount)
+		@current_player.drop(itemName, amount)
 	end
 
 	# Testing function.
-	def create_item(itemName, amount=1)
+	def create_item(item_name, amount=1)
 		#Instantiate the ItemFactory.
-		itemFactory = ItemFactory.instance
+		factory = ItemFactory.instance
 		#Create the desired item.
-		newItem = itemFactory.createItem(itemName, amount)
-		@currentPlayer.take(newItem)
+		new_item = factory.create_item(item_name, amount)
+		@current_player.take(new_item)
 	end
 
 	private
-		def getPosition
-			"#{@currentPlayer.x}, #{@currentPlayer.y}"
+		def get_position
+			"#{@current_player.x}, #{@current_player.y}"
 		end
 
-		def getNextPlayer
-			new_player_index = (@players.index(@currentPlayer) + 1) % @players.count
+		def get_next_player
+			new_player_index = (@players.index(@current_player) + 1) % @players.count
 			@players[new_player_index]
 		end
 
@@ -120,40 +121,40 @@ class Game
 			@actions -= 1
 			random_event
 			if @actions.zero?
-				newTurn
+				new_turn
 			else
 				puts "You have #{@actions} actions left"
 			end
 		end
 
-		def newTurn
-			@currentPlayer = getNextPlayer
-			print "It's now #{@currentPlayer.name}'s turn \n"
-			@actions = DEFAULTMOVES
+		def new_turn
+			@current_player = get_next_player
+			print "It's now #{@current_player.name}'s turn \n"
+			@actions = START_MOVES
 		end
 
 		def random_event
-			if @map.getPlayerLocation(@currentPlayer).combat?
+			if @map.get_location_of(@current_player).combat?
 				puts "Start combat"
 				# TODO: Start a combat
 			end
 		end
 
-		def movePlayer(direction,speed=1)
+		def move_player(direction,speed=1)
 			case direction
 			when 'up','u','n','north'
-				@currentPlayer.y -= 1
+				@current_player.y -= 1
 			when 'down','d','s','south'
-				@currentPlayer.y += 1
+				@current_player.y += 1
 			when 'left','l','w','west'
-				@currentPlayer.x -= 1
+				@current_player.x -= 1
 			when 'right','r','e','east'
-				@currentPlayer.x += 1
+				@current_player.x += 1
 			end
 			self.coords
 		end
 
-		def createCharacters
+		def create_characters
 			# Set up number of players.
 			input = ""
 			loop do
@@ -170,15 +171,15 @@ class Game
 				@players.push(Character.new(gets))
 			end
 
-			#Set the currentPlayer to the first player.
-			@currentPlayer = @players.first
+			#Set the current_player to the first player.
+			@current_player = @players.first
 
 			#Debug stuff.
 			# puts "Players in Players array: "
 			# for player in @players
 			# 	puts player.name
 			# end
-			# puts "Current player: " + @currentPlayer.name
+			# puts "Current player: " + @current_player.name
 			return
 		end
 end

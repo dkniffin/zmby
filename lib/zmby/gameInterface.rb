@@ -9,7 +9,7 @@ class GameInterface
 		@game = Game.instance
 	end
 
-	def handleCommand(input)
+	def handle_command(input)
 		# Parse input into parts
 		args = input.split
 		command = args.shift.to_sym # First argument is the command

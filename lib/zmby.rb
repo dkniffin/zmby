@@ -30,8 +30,8 @@ eoc
 				$stdout.print(prompt)
 				input = gets.chomp
 
-				output = game.handleCommand(input)
-		  	puts output
+				output = game.handle_command(input)
+		  		puts output
 			end
 		end
 	end

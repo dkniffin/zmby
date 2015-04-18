@@ -13,7 +13,7 @@ class Map
 				chars = line.gsub(/\s+/, "").chars
 
 				row = chars.map do |char|
-					factory.buildLocation(char)
+					factory.build_location(char)
 				end
 				@map.push(row)
 			end
@@ -26,10 +26,10 @@ class Map
 		ascii += "\n"
 		ascii += ""
 	end
-	def getLocation(x,y)
+	def get_location(x,y)
 		@map[y][x]
 	end
-	def getPlayerLocation(player)
-		@map[player.y][player.x]
+	def get_location_of(movable)
+		get_location(movable.x,movable.y)
 	end
 end

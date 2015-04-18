@@ -2,7 +2,7 @@ require 'zmby/movable'
 require 'zmby/item'
 
 class Character < Movable
-	attr_accessor :current_health, :max_health
+	attr_accessor :current_health, :max_health, :medicine, :food, :ammo, :gas, :scrap
 	attr_reader :inventory, :name
 	INVENTORY_SIZE = 20
 
@@ -12,13 +12,13 @@ class Character < Movable
 		@max_health = 100
 		@current_health = 100
 		@name = name
-		
+
 		#General Resources
-		@Medicine = 0
-		@Food = 0
-		@Ammo = 0 
-		@Gas = 0 
-		@Scrap = 0 
+		@medicine = 0
+		@food = 0
+		@ammo = 0
+		@gas = 0
+		@scrap = 0
 	end
 
 	def health
@@ -33,12 +33,12 @@ class Character < Movable
 		@current_health -= val
 	end
 
-	def take(newItem)
+	def take(new_item)
 		@inventory.each do |item|
-			if item.name == newItem.name && !item.capped?
-				leftover = item.addAmount(newItem.count)
+			if item.name == new_item.name && !item.capped?
+				leftover = item.add_amount(new_item.count)
 				if leftover
-					newItem.setAmount(leftover)
+					new_item.set_amount(leftover)
 					break
 				else
 					return
@@ -51,18 +51,18 @@ class Character < Movable
 		end
 	end
 
-	def drop(itemName, amount)
+	def drop(item_name, amount)
 		amount = amount.to_i
 
 		@inventory.each_with_index do |item, i|
-			if item.name == itemName
-				amount = @inventory[i].removeAmount(amount)
+			if item.name == item_name
+				amount = @inventory[i].remove_amount(amount)
 				if @inventory[i].count == 0
 					@inventory.delete_at(i)
-					# Recursion is necessary, since when we 
+					# Recursion is necessary, since when we
 					# delete an element, we mess up the for loop.
 					# Will refactor so that it is more readable.
-					drop(itemName, amount) 
+					drop(item_name, amount)
 				end
 				if !amount
 					break

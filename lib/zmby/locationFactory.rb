@@ -23,7 +23,7 @@ class LocationFactory
 	def initialize
 	end
 
-	def buildLocation(char)
-		LocationTypeMap.char2class(char).new
+	def build_location(char)
+		LocationTypeMap.char_to_class(char).new
 	end
 end

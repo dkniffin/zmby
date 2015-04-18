@@ -23,10 +23,10 @@ module LocationTypeMap
 	}
 
 	module_function
-		def char2class(char)
+		def char_to_class(char)
 			@@two_way_map[char]
 		end
-		def class2char(cls)
+		def class_to_char(cls)
 			@@two_way_map.invert[cls]
 		end
 end

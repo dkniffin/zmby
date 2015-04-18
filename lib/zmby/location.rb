@@ -1,4 +1,5 @@
 class Location
+	attr_accessor :fort_level
 	def initialize
 		@search_chance = {
 			:medical_supplies => 0,
@@ -13,7 +14,7 @@ class Location
 		@combat_chance = 0
 	end
 	def char
-		LocationTypeMap.class2char(self.class)
+		LocationTypeMap.class_to_char(self.class)
 	end
 	def search
 		@search_chance.each do |t,p|
