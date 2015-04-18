@@ -12,6 +12,13 @@ class Character < Movable
 		@max_health = 100
 		@current_health = 100
 		@name = name
+		
+		#General Resources
+		@Medicine = 0
+		@Food = 0
+		@Ammo = 0 
+		@Gas = 0 
+		@Scrap = 0 
 	end
 
 	def health
