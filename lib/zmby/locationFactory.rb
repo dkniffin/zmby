@@ -20,10 +20,28 @@ require 'zmby/locationTypeMap'
 class LocationFactory
 	include Singleton
 
-	def initialize
-	end
-
-	def build_location(char)
-		LocationTypeMap.char_to_class(char).new
+	def build_location(type)
+		case type
+		when 'hospital'
+			Hospital.new
+		when 'woods'
+			Woods.new
+		when 'road'
+			Road.new
+		when 'house'
+			House.new
+		when 'office'
+			Office.new
+		when 'prison'
+			Prison.new
+		when 'gas_station'
+			GasStation.new
+		when 'store'
+			Supermarket.new
+		when 'warehouse'
+			Warehouse.new
+		else
+			puts "ERROR: Unknown type #{type}"
+		end
 	end
 end

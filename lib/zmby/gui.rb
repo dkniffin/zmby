@@ -1,5 +1,4 @@
 require 'gosu'
-require 'gosu_tiled'
 require 'zmby/game'
 
 module Zmby
@@ -7,8 +6,9 @@ module Zmby
 		def initialize
 			super(800, 600, false)
 			@game = Game.instance
-			load_map
-			# @menu_image = Gosu::Image.new(self, "media/Space.png", true)
+			# TODO: Menu screen w/ New Game, Load Game, Exit
+			@game.new_game(self, "assets/2.json")
+
 			@x = @y = 0
 			@speed = 3
 		end
@@ -21,11 +21,8 @@ module Zmby
 		end
 
 		def draw
-			@map.draw(@x, @y)
-		end
-
-		def load_map
-			@map = Gosu::Tiled.load_json(self, 'assets/2.json')
+			@game.map.draw(@x, @y)
+			# TODO: Draw character on map
 		end
 	end
 end

@@ -9,12 +9,27 @@ class Game
 
 	START_MOVES = 4
 
+	attr_reader :map
 	def initialize
 		@current_player = nil
 		@actions = START_MOVES
 		@map = nil
 		@players = []
 	end
+
+	# Game state functions
+	def new_game(window, map)
+		load_map(window, map)
+		create_characters
+	end
+	def load_game(window, map)
+		# TODO: Load game data from somewhere
+	end
+
+	def save_game
+		# TODO: Save game data somewhere
+	end
+
 
 	# Commands
 	def move(direction)
@@ -40,13 +55,9 @@ class Game
 		@current_player.health
 	end
 
-	def new_game(map="maps/1.txt")
-		@map = Map.new(map)
-		create_characters
-	end
-	def map
-		@map.render(@current_player.x,@current_player.y)
-	end
+	# def map
+	# 	@map.render(@current_player.x,@current_player.y)
+	# end
 	def coords
 		get_position
 	end
@@ -183,6 +194,11 @@ class Game
 			# end
 			# puts "Current player: " + @current_player.name
 			return
+		end
+
+		# Given a file name, load the map
+		def load_map(window,map)
+			@map = Map.new(window, JSON.load(File.open(map)), File.dirname(map))
 		end
 end
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="142">
  <tileset firstgid="1" source="LPC/altas_0/terrain_atlas.tsx"/>
  <tileset firstgid="1025" name="road" tilewidth="32" tileheight="32">
   <image source="misc/road.png" width="128" height="128"/>
@@ -3588,25 +3588,25 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1033"/>
-   <tile gid="1027"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
-   <tile gid="1030"/>
+   <tile gid="1035"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -3638,25 +3638,25 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1033"/>
-   <tile gid="1025"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
-   <tile gid="1038"/>
+   <tile gid="1035"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6003,14 +6003,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6053,14 +6045,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6111,8 +6095,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6161,8 +6143,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6203,14 +6183,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
-   <tile gid="1043"/>
-   <tile gid="1044"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -6253,14 +6225,42 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
-   <tile gid="1051"/>
-   <tile gid="1052"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -8507,14 +8507,7 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -8533,6 +8526,13 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1063"/>
@@ -8557,14 +8557,9 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -8583,6 +8578,11 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1063"/>
@@ -8595,28 +8595,8 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -8633,8 +8613,6 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -8645,26 +8623,28 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1063"/>
@@ -8683,8 +8663,6 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -8695,8 +8673,6 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -8707,12 +8683,18 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1063"/>
@@ -8733,8 +8715,11 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -8745,6 +8730,9 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1063"/>
@@ -8757,14 +8745,26 @@
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
+   <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
    <tile gid="1063"/>
@@ -10023,4 +10023,101 @@
    <tile gid="1063"/>
   </data>
  </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="23" type="office" x="640" y="448" width="64" height="64"/>
+  <object id="24" type="office" x="704" y="448" width="64" height="64"/>
+  <object id="25" type="offfice" x="448" y="448" width="64" height="64"/>
+  <object id="26" type="office" x="512" y="448" width="64" height="64"/>
+  <object id="27" type="office" x="448" y="576" width="64" height="64"/>
+  <object id="28" type="office" x="512" y="576" width="64" height="64"/>
+  <object id="29" type="office" x="576" y="576" width="64" height="64"/>
+  <object id="30" type="office" x="640" y="576" width="64" height="64"/>
+  <object id="31" type="office" x="704" y="576" width="64" height="64"/>
+  <object id="32" type="house" x="1216" y="192" width="64" height="64"/>
+  <object id="33" type="house" x="1216" y="256" width="64" height="64"/>
+  <object id="34" type="house" x="1280" y="320" width="64" height="64"/>
+  <object id="36" type="house" x="1344" y="256" width="64" height="64"/>
+  <object id="37" type="house" x="1344" y="192" width="64" height="64"/>
+  <object id="38" type="house" x="1344" y="128" width="64" height="64"/>
+  <object id="39" type="house" x="1280" y="64" width="64" height="64"/>
+  <object id="40" type="house" x="1216" y="64" width="64" height="64"/>
+  <object id="51" type="warehouse" x="704" y="1280" width="64" height="64"/>
+  <object id="54" type="hospital" x="128" y="64" width="64" height="64"/>
+  <object id="55" type="road" x="128" y="128" width="64" height="64"/>
+  <object id="56" type="road" x="128" y="192" width="64" height="64"/>
+  <object id="57" type="road" x="192" y="192" width="64" height="64"/>
+  <object id="58" type="road" x="256" y="192" width="64" height="64"/>
+  <object id="59" type="road" x="320" y="192" width="64" height="64"/>
+  <object id="60" type="road" x="384" y="192" width="64" height="64"/>
+  <object id="61" type="road" x="384" y="256" width="64" height="64"/>
+  <object id="62" type="road" x="384" y="320" width="64" height="64"/>
+  <object id="63" type="road" x="384" y="384" width="64" height="64"/>
+  <object id="64" type="road" x="384" y="448" width="64" height="64"/>
+  <object id="65" type="road" x="384" y="512" width="64" height="64"/>
+  <object id="66" type="road" x="448" y="512" width="64" height="64"/>
+  <object id="67" type="road" x="512" y="512" width="64" height="64"/>
+  <object id="68" type="road" x="576" y="512" width="64" height="64"/>
+  <object id="69" type="road" x="640" y="512" width="64" height="64"/>
+  <object id="70" type="road" x="384" y="576" width="64" height="64"/>
+  <object id="71" type="road" x="384" y="640" width="64" height="64"/>
+  <object id="72" type="road" x="384" y="704" width="64" height="64"/>
+  <object id="73" type="road" x="384" y="768" width="64" height="64"/>
+  <object id="74" type="road" x="384" y="832" width="64" height="64"/>
+  <object id="75" type="road" x="384" y="896" width="64" height="64"/>
+  <object id="76" type="road" x="320" y="896" width="64" height="64"/>
+  <object id="77" type="road" x="256" y="896" width="64" height="64"/>
+  <object id="78" type="road" x="192" y="896" width="64" height="64"/>
+  <object id="79" type="road" x="192" y="960" width="64" height="64"/>
+  <object id="80" type="road" x="192" y="1024" width="64" height="64"/>
+  <object id="81" type="road" x="192" y="1088" width="64" height="64"/>
+  <object id="82" type="road" x="704" y="512" width="64" height="64"/>
+  <object id="83" type="road" x="768" y="512" width="64" height="64"/>
+  <object id="84" type="road" x="768" y="448" width="64" height="64"/>
+  <object id="85" type="road" x="768" y="384" width="64" height="64"/>
+  <object id="86" type="road" x="768" y="320" width="64" height="64"/>
+  <object id="87" type="road" x="768" y="256" width="64" height="64"/>
+  <object id="88" type="road" x="768" y="192" width="64" height="64"/>
+  <object id="89" type="road" x="768" y="128" width="64" height="64"/>
+  <object id="90" type="road" x="832" y="128" width="64" height="64"/>
+  <object id="91" type="road" x="896" y="128" width="64" height="64"/>
+  <object id="92" type="road" x="960" y="128" width="64" height="64"/>
+  <object id="93" type="road" x="1024" y="128" width="64" height="64"/>
+  <object id="94" type="road" x="1088" y="128" width="64" height="64"/>
+  <object id="95" type="road" x="1152" y="128" width="64" height="64"/>
+  <object id="96" type="road" x="1216" y="128" width="64" height="64"/>
+  <object id="97" type="road" x="1280" y="128" width="64" height="64"/>
+  <object id="98" type="road" x="1280" y="192" width="64" height="64"/>
+  <object id="99" type="road" x="1280" y="256" width="64" height="64"/>
+  <object id="111" type="road" x="768" y="576" width="64" height="64"/>
+  <object id="112" type="road" x="768" y="640" width="64" height="64"/>
+  <object id="113" type="road" x="768" y="704" width="64" height="64"/>
+  <object id="114" type="road" x="768" y="768" width="64" height="64"/>
+  <object id="115" type="road" x="768" y="832" width="64" height="64"/>
+  <object id="116" type="road" x="768" y="896" width="64" height="64"/>
+  <object id="117" type="road" x="832" y="896" width="64" height="64"/>
+  <object id="118" type="road" x="896" y="896" width="64" height="64"/>
+  <object id="119" type="road" x="960" y="896" width="64" height="64"/>
+  <object id="120" type="road" x="1024" y="896" width="64" height="64"/>
+  <object id="121" type="road" x="1088" y="896" width="64" height="64"/>
+  <object id="122" type="road" x="1152" y="896" width="64" height="64"/>
+  <object id="123" type="road" x="1216" y="896" width="64" height="64"/>
+  <object id="124" type="road" x="1216" y="960" width="64" height="64"/>
+  <object id="125" type="road" x="1216" y="1024" width="64" height="64"/>
+  <object id="126" type="road" x="1216" y="1088" width="64" height="64"/>
+  <object id="127" type="road" x="1216" y="1152" width="64" height="64"/>
+  <object id="128" type="road" x="1216" y="1216" width="64" height="64"/>
+  <object id="129" type="road" x="1216" y="1280" width="64" height="64"/>
+  <object id="130" type="road" x="1216" y="1344" width="64" height="64"/>
+  <object id="131" type="road" x="1216" y="1408" width="64" height="64"/>
+  <object id="132" type="road" x="1152" y="1408" width="64" height="64"/>
+  <object id="133" type="road" x="1088" y="1408" width="64" height="64"/>
+  <object id="134" type="road" x="1024" y="1408" width="64" height="64"/>
+  <object id="135" type="road" x="960" y="1408" width="64" height="64"/>
+  <object id="136" type="road" x="896" y="1408" width="64" height="64"/>
+  <object id="137" type="road" x="832" y="1408" width="64" height="64"/>
+  <object id="138" type="road" x="768" y="1408" width="64" height="64"/>
+  <object id="139" type="road" x="704" y="1408" width="64" height="64"/>
+  <object id="140" type="road" x="704" y="1344" width="64" height="64"/>
+  <object id="141" type="store" x="576" y="448" width="64" height="64"/>
+ </objectgroup>
 </map>
