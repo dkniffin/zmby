@@ -1,18 +1,23 @@
 # Zmby
 
-TODO: Write a gem description
+**Zmby** is a top-down zombie survival game, written in ruby.
+
+## Install
+
+`shell> git clone https://github.com/oddityoverseer13/zmby.git`
+`shell> bundle install`
 
 ## Usage
 
 To run the program:
 
 ```
-    $ ruby -Ilib bin/zmby
+    shell> ruby -Ilib bin/zmby
 ```
 
 Then to create a new game:
 ```
-	> new_game maps/1.txt
+	zmby> new_game maps/1.txt
 ```
 
 ## Contributing
