@@ -1,4 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'zmby'
-Zmby.run
+require 'pp'
+args = Hash[ARGV.join(' ').scan(/--?([^=\s]+)(?:=(\S+))?/)]
+if args.has_key?("c")
+	Zmby.run_cli
+else
+	Zmby.run_gui
+end

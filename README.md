@@ -9,16 +9,20 @@
 
 ## Usage
 
-To run the program:
+### CLI
+To run the cli version of the program:
 
 ```
-    shell> ruby -Ilib bin/zmby
+    shell> ruby -Ilib bin/zmby -c
 ```
 
 Then to create a new game:
 ```
 	zmby> new_game maps/1.txt
 ```
+
+### GUI
+
 
 ## Contributing
 
