@@ -21,6 +21,12 @@ module Zmby
 			# UI
 			@top_bar_image = Gosu::Image.new(self, "assets/ui/top_bar.png")
 			@font = Gosu::Font.new(self, Gosu::default_font_name, 20)
+
+			@wood_image = Gosu::Image.new(self, "assets/ui/wood.png")
+			@water_image = Gosu::Image.new(self, "assets/ui/water_bottle.png")
+			@gas_image = Gosu::Image.new(self, "assets/ui/gas_can.png")
+			@medkits_image = Gosu::Image.new(self, "assets/ui/medkit.png")
+			@ammo_image = Gosu::Image.new(self, "assets/ui/ammo.png")
 		end
 
 		def button_down(id)
@@ -37,21 +43,42 @@ module Zmby
 		end
 
 		def draw
+			player = @game.current_player
 			char = {
-				:x => (@game.current_player.x * 64) - @char_draw_x,
-				:y => (@game.current_player.y * 64) - @char_draw_y
+				:x => (player.x * 64) - @char_draw_x,
+				:y => (player.y * 64) - @char_draw_y
 			}
 
 			# Map
 			@game.map.draw(char[:x], char[:y])
 
-			# Character
+			# Character Image
 			@char_image.draw(@char_draw_x,@char_draw_y,20)
 
 			# UI
 			@top_bar_image.draw(0,5,100)
-			@font.draw("HP:#{@game.health}", 20, 10, 101, 1.0, 1.0, Gosu::Color::argb(0xffAA1717))
 
+			ui_text_color = Gosu::Color::argb(0xff8A0707)
+			draw_resources([[@wood_image, player.scrap],
+						 [@water_image, player.food],
+						 [@gas_image, player.gas],
+						 [@medkits_image, player.medicine],
+						 [@ammo_image, player.ammo]
+						], 20, ui_text_color)
+
+			player_indicator_str = "Player: #{player.name}"
+			str_width = player_indicator_str.length * 10
+			@font.draw(player_indicator_str, @window_width - (str_width + 5), 10, 101, 1.0, 1.0, ui_text_color)
+		end
+
+		def draw_resources(resources,start_pos,text_color)
+			ui_x = start_pos
+			resources.each do |img,count|
+				img.draw(ui_x,8,100)
+				ui_x += img.width + 5
+				@font.draw("#{count}", ui_x, 10, 101, 1.0, 1.0, text_color)
+				ui_x += 30
+			end
 		end
 	end
 end
