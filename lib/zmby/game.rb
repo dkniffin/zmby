@@ -9,7 +9,7 @@ class Game
 
 	START_MOVES = 4
 
-	attr_reader :map
+	attr_reader :map, :current_player
 	def initialize
 		@current_player = nil
 		@actions = START_MOVES
