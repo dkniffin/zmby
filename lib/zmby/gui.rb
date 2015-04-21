@@ -39,6 +39,14 @@ module Zmby
 				@game.move('up')
 			when Gosu::KbDown
 				@game.move('down')
+			when Gosu::KbS
+				@game.search
+			when Gosu::KbF
+				@game.fortify
+			when Gosu::KbH
+				@game.heal
+			when Gosu::KbI
+				@game.inventory
 			end
 		end
 

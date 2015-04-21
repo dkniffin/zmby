@@ -5,5 +5,6 @@ class House < Location
 		@search_chance[:medical_supplies] = 0.3
 		@search_chance[:weapons] = 0.1
 		@search_chance[:ammo] = 0.1
+		@combat_chance = 0.01
 	end
 end
