@@ -11,13 +11,16 @@ module Zmby
 			# TODO: Menu screen w/ New Game, Load Game, Exit
 			@game.new_game(self, "assets/2.json")
 
+			# Character
 			@char_image = Gosu::Image.new(self, "assets/character.png")
-			# @x = @y = 0
-			@speed = 3
 
 			# Draw character in the middle of screen
 			@char_draw_x = (@window_width / 2) - 32
 			@char_draw_y = (@window_height / 2) - 32
+
+			# UI
+			@top_bar_image = Gosu::Image.new(self, "assets/ui/top_bar.png")
+			@font = Gosu::Font.new(self, Gosu::default_font_name, 20)
 		end
 
 		def button_down(id)
@@ -39,10 +42,15 @@ module Zmby
 				:y => (@game.current_player.y * 64) - @char_draw_y
 			}
 
+			# Map
 			@game.map.draw(char[:x], char[:y])
+
+			# Character
 			@char_image.draw(@char_draw_x,@char_draw_y,20)
-			# TODO: Draw character on map
-			# @char_image.draw(char[:x],char[:y],20)
+
+			# UI
+			@top_bar_image.draw(0,5,100)
+			@font.draw("HP:#{@game.health}", 20, 10, 101, 1.0, 1.0, Gosu::Color::argb(0xffAA1717))
 
 		end
 	end
