@@ -9,7 +9,7 @@ class Game
 
 	START_MOVES = 4
 
-	attr_reader :map, :current_player
+	attr_reader :map, :current_player, :players
 	def initialize
 		@current_player = nil
 		@actions = START_MOVES
@@ -20,7 +20,7 @@ class Game
 	# Game state functions
 	def new_game(window, map)
 		load_map(window, map)
-		create_characters
+		create_characters(window)
 	end
 	def load_game(window, map)
 		# TODO: Load game data from somewhere
@@ -167,7 +167,7 @@ class Game
 			self.coords
 		end
 
-		def create_characters
+		def create_characters(window)
 			# Set up number of players.
 			input = ""
 			loop do
@@ -181,7 +181,8 @@ class Game
 			input = input.to_i
 			(1..input).each do |i|
 				puts "Enter Player #{i}'s name:"
-				@players.push(Character.new(gets.chomp))
+				image = Gosu::Image.new(window, "assets/characters/#{i}.png")
+				@players.push(Character.new(gets.chomp,image))
 			end
 
 			#Set the current_player to the first player.

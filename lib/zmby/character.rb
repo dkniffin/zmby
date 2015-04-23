@@ -2,16 +2,18 @@ require 'zmby/movable'
 require 'zmby/item'
 
 class Character < Movable
-	attr_accessor :current_health, :max_health, :medicine, :food, :ammo, :gas, :scrap
+	attr_accessor :current_health, :max_health, :medicine, :food, :ammo, :gas, :scrap, :image
 	attr_reader :inventory, :name
 	INVENTORY_SIZE = 20
 
-	def initialize(name, *args)
+	def initialize(name, image, *args)
 		super
 		@inventory = []
 		@max_health = 100
 		@current_health = 100
 		@name = name
+
+		@image = image
 
 		#General Resources
 		@medicine = 0

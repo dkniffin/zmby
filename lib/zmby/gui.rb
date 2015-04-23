@@ -11,9 +11,6 @@ module Zmby
 			# TODO: Menu screen w/ New Game, Load Game, Exit
 			@game.new_game(self, "assets/2.json")
 
-			# Character
-			@char_image = Gosu::Image.new(self, "assets/character.png")
-
 			# Draw character in the middle of screen
 			@char_draw_x = (@window_width / 2) - 32
 			@char_draw_y = (@window_height / 2) - 32
@@ -52,16 +49,21 @@ module Zmby
 
 		def draw
 			player = @game.current_player
-			char = {
+			offset = {
 				:x => (player.x * 64) - @char_draw_x,
 				:y => (player.y * 64) - @char_draw_y
 			}
 
 			# Map
-			@game.map.draw(char[:x], char[:y])
+			@game.map.draw(offset[:x], offset[:y])
 
-			# Character Image
-			@char_image.draw(@char_draw_x,@char_draw_y,20)
+			# Other players
+			@game.players.select{|p| p != player}.each do |p|
+				p.image.draw(p.x*64 - offset[:x], p.y*64 - offset[:y],20)
+			end
+
+			# Current character image
+			player.image.draw(@char_draw_x,@char_draw_y,20)
 
 			# UI
 			@top_bar_image.draw(0,5,100)
