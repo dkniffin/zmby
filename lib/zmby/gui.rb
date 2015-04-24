@@ -7,9 +7,13 @@ module Zmby
 			@window_width = 800
 			@window_height = 600
 			super(@window_width, @window_height, false)
+
+			@main_menu_image = Gosu::Image.new(self,"assets/title.png")
+			@cursor_image = Gosu::Image.new(self,"assets/ui/cursor.png")
+
+			@in_game = false
 			@game = Game.instance
 			# TODO: Menu screen w/ New Game, Load Game, Exit
-			@game.new_game(self, "assets/2.json")
 
 			# Draw character in the middle of screen
 			@char_draw_x = (@window_width / 2) - 32
@@ -27,27 +31,58 @@ module Zmby
 		end
 
 		def button_down(id)
-			case id
-			when Gosu::KbLeft
-				@game.move('left')
-			when Gosu::KbRight
-				@game.move('right')
-			when Gosu::KbUp
-				@game.move('up')
-			when Gosu::KbDown
-				@game.move('down')
-			when Gosu::KbS
-				@game.search
-			when Gosu::KbF
-				@game.fortify
-			when Gosu::KbH
-				@game.heal
-			when Gosu::KbI
-				@game.inventory
+			if (@in_game)
+				case id
+				when Gosu::KbLeft
+					@game.move('left')
+				when Gosu::KbRight
+					@game.move('right')
+				when Gosu::KbUp
+					@game.move('up')
+				when Gosu::KbDown
+					@game.move('down')
+				when Gosu::KbS
+					@game.search
+				when Gosu::KbF
+					@game.fortify
+				when Gosu::KbH
+					@game.heal
+				when Gosu::KbI
+					@game.inventory
+				end
+			else
+				case id
+				when Gosu::MsLeft
+					if self.mouse_x > 290 && self.mouse_x < 500 &&
+						self.mouse_y > 310 && self.mouse_y < 360
+						# New game
+						@game.new_game(self, "assets/2.json")
+						@in_game = true
+
+					elsif self.mouse_x > 290 && self.mouse_x < 500 &&
+						self.mouse_y > 360 && self.mouse_y < 410
+						# Quit game
+						exit
+					end
+				end
+
 			end
 		end
 
 		def draw
+			@cursor_image.draw(self.mouse_x,self.mouse_y,9999)
+			if (@in_game)
+				draw_game
+			else
+				draw_main_menu
+			end
+		end
+
+		def draw_main_menu
+			@main_menu_image.draw(0,0,0)
+		end
+
+		def draw_game
 			player = @game.current_player
 			offset = {
 				:x => (player.x * 64) - @char_draw_x,
