@@ -78,8 +78,13 @@ class Game
 		action
 		out
 	end
-
+	
+	##
+	#CURRENTLY DEPREACATED AND NONFUNCTIONAL
+	##
 	def fortify(scrap_usage = 0)
+		#TODO: Needs to search through inventory for the Scrap "stack" and modify that
+		#Rather than the current variable it's using.
 		if (scrap_usage <= 0)
 			puts "Need to put in some scrap to fortify!"
 			return
