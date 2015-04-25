@@ -1,7 +1,7 @@
 require 'singleton'
 
 require 'pp'
-require 'zmby/game'
+require_relative 'game'
 
 module Zmby
 	class CLI

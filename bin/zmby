@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'zmby'
+require_relative '../lib/zmby.rb'
 require 'pp'
 args = Hash[ARGV.join(' ').scan(/--?([^=\s]+)(?:=(\S+))?/)]
 if args.has_key?("c")

@@ -1,5 +1,5 @@
-require 'zmby/movable'
-require 'zmby/item'
+require_relative 'movable'
+require_relative 'item'
 
 class Character < Movable
 	attr_accessor :current_health, :max_health, :medicine, :food, :ammo, :gas, :scrap, :image

@@ -1,5 +1,5 @@
 require 'gosu'
-require 'zmby/game'
+require_relative 'game'
 
 module Zmby
 	class GUI < Gosu::Window

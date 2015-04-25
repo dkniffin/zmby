@@ -1,5 +1,5 @@
 require 'gosu_tiled'
-require 'zmby/locationFactory'
+require_relative 'locationFactory'
 
 require 'pp'
 class Map < Gosu::Tiled::Map

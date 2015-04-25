@@ -1,19 +1,19 @@
 require 'singleton'
 
 #base Item and Weapon
-require 'zmby/item'
-require 'zmby/items/weapon'
+require_relative 'item'
+require_relative 'items/weapon'
 
 #Child Item classes
-require 'zmby/items/ammo'
-require 'zmby/items/food'
-require 'zmby/items/gas'
-require 'zmby/items/medicine'
-require 'zmby/items/scrap'
+require_relative 'items/ammo'
+require_relative 'items/food'
+require_relative 'items/gas'
+require_relative 'items/medicine'
+require_relative 'items/scrap'
 
 #Child Weapon classes
-require 'zmby/items/weapons/pistol'
-require 'zmby/items/weapons/knife'
+require_relative 'items/weapons/pistol'
+require_relative 'items/weapons/knife'
 
 
 # Use this factory to create every item you need in the game.

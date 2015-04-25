@@ -1,8 +1,8 @@
 require 'singleton'
 
-require 'zmby/character'
-require 'zmby/map'
-require 'zmby/itemFactory'
+require_relative 'character'
+require_relative 'map'
+require_relative 'itemFactory'
 
 class Game
 	include Singleton
@@ -78,7 +78,7 @@ class Game
 		action
 		out
 	end
-	
+
 	##
 	#CURRENTLY DEPREACATED AND NONFUNCTIONAL
 	##
