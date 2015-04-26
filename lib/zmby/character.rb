@@ -57,7 +57,7 @@ class Character < Movable
 		amount = amount.to_i
 
 		@inventory.each_with_index do |item, i|
-			if item.name == item_name
+			if item.name == item_name.downcase
 				amount = @inventory[i].remove_amount(amount)
 				if @inventory[i].count == 0
 					@inventory.delete_at(i)
@@ -71,5 +71,21 @@ class Character < Movable
 				end
 			end
 		end
+	end
+
+	#in_inventory? will search across the player's inventory, and check if
+	# the player has "amount" of "item_name". This will search across
+	# multiple stacks.
+	def in_inventory?(item_name, amount)
+		total_amount = 0
+		@inventory.each do |item|
+			if item.name == item_name.downcase
+				total_amount += item.count
+				if total_amount >= amount
+					return true
+				end
+			end
+		end
+		false
 	end
 end
