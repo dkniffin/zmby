@@ -117,12 +117,14 @@ class Game
 	end
 
 	# Testing function.
-	def create_item(item_name, amount=1)
+	def create_items(item_name, amount=1, instances=1)
 		#Instantiate the ItemFactory.
 		factory = ItemFactory.instance
-		#Create the desired item.
-		new_item = factory.create_item(item_name, amount)
-		@current_player.take(new_item)
+		#Create the desired items.
+		new_items = factory.createItems(item_name, amount, instances)
+		for item in new_items
+			@current_player.take(item)
+		end
 	end
 
 	private

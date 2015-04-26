@@ -21,33 +21,46 @@ require_relative 'items/weapons/knife'
 class ItemFactory
 	include Singleton
 
-	def createItem(item_name, amount=1)
-		case item_name
-		# Stackable resources.
-		when "Medicine"
-			Medicine.new(amount)
-		when "Food"
-			Food.new(amount)
-		when "Ammo"
-			Ammo.new(amount)
-		when "Gas"
-			Gas.new(amount)
-		when "Scrap"
-			Scrap.new(amount)
+	#item_name is the name of the Item's classname that you want.
+	#amount is the stack number of the item.
+	#instances is the number of copies of the item you want.
+	#Example: createItem("Ammo", 20, 3) will create 3 ammo objects, with 20 bullets in each.
+	def createItems(item_name, amount=1, instances=1)
 
-		# Weapons.
-		when "Knife"
-			Knife.new(amount)
-		when "Pistol"
-			Pistol.new(amount)
+		new_items = []
 
-		# Tools.
+		instances.times do
 
-		# Miscellaneous Items.
+			case item_name.downcase
+			# Stackable resources.
+			when "medicine"
+				new_items.push(Medicine.new(amount))
+			when "food"
+				new_items.push(Food.new(amount))
+			when "ammo"
+				new_items.push(Ammo.new(amount))
+			when "gas"
+				new_items.push(Gas.new(amount))
+			when "scrap"
+				new_items.push(Scrap.new(amount))
 
-		# Otherwise, error.
-		else
-			puts "Could not create item: #{item_name}."
+			# Weapons.
+			when "knife"
+				new_items.push(Knife.new(amount))
+			when "pistol"
+				new_items.push(Pistol.new(amount))
+
+			# Tools.
+
+			# Miscellaneous Items.
+
+			# Otherwise, error.
+			else
+				puts "Could not create item(s): #{item_name}."
+				break
+			end
 		end
+
+		new_items
 	end
 end

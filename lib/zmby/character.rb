@@ -49,7 +49,7 @@ class Character < Movable
 		end
 
 		if @inventory.length < INVENTORY_SIZE
-			@inventory << newItem
+			@inventory << new_item
 		end
 	end
 
