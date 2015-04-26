@@ -35,6 +35,10 @@ class Character < Movable
 		@current_health -= val
 	end
 
+	def inventory_count(item_name)
+		@inventory.select{|i| i.name == item_name}.length
+	end
+
 	def take(new_item)
 		@inventory.each do |item|
 			if item.name == new_item.name && !item.capped?
