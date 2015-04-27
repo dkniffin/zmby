@@ -49,10 +49,16 @@ class ItemFactory
 				new_item = Knife.new(amount)
 			when "pistol"
 				new_item = Pistol.new(amount)
-
-			# Tools.
-
-			# Miscellaneous Items.
+			when "hatchet"
+				new_item = Hatchet.new(amount)
+			when "rifle"
+				new_item = Rifle.new(amount)
+			when "crowbar"
+				new_item = Crowbar.new(amount)
+			when "keyblade"
+				new_item = Keyblade.new(amount)
+			when "hammer"
+				new_item = Hammer.new(amount)
 
 			# Otherwise, error.
 			else

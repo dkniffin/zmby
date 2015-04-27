@@ -2,15 +2,18 @@ require_relative 'movable'
 require_relative 'item'
 
 class Character < Movable
-	attr_accessor :current_health, :max_health, :image
+	attr_accessor :current_health, :max_health, :image, :current_hunger, :max_hunger
 	attr_reader :inventory, :name
 	INVENTORY_SIZE = 20
+	HUNGER_TICK = 2
 
 	def initialize(name, image, *args)
 		super
 		@inventory = []
 		@max_health = 100
 		@current_health = 100
+		@max_hunger = 100
+		@current_hunger = 100
 		@name = name
 
 		@image = image
@@ -30,6 +33,34 @@ class Character < Movable
 	def hurt(val)
 		@current_health -= val
 	end
+
+	def hunger
+		"#{@current_hunger} / #{@max_hunger}"
+	end
+
+	def get_hungry(val=HUNGER_TICK)
+		#get more hungry.
+		if current_hunger > 0
+			@current_hunger -= val.to_i
+			#set to 0 if we are past it.
+			if @current_hunger < 0
+				@current_hunger = 0
+			end
+		#if we are starving, decrease health.
+		else
+			hurt(5)
+		end
+	end
+
+	def eat
+		if in_inventory?("food")
+			drop("food", 1)
+			@current_hunger += 10
+		else
+			puts "You have no food to eat!"
+		end
+	end
+
 
 	def inventory_count(item_name)
 		@inventory.select{|i| i.name == item_name}.map{|i| i.count}.reduce(:+) || 0
