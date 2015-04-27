@@ -84,6 +84,7 @@ class Game
 		if !@current_player.in_inventory?("hammer")
 			puts "You don't have a hammer!"
 			return
+		end
 
 		#Guard condition: The player lacks the necessary scrap.
 		if !@current_player.in_inventory?("scrap", scrap_usage)
@@ -114,11 +115,11 @@ class Game
 	end
 
 	# Testing function.
-	def create_items(item_name, amount=1, instances=1)
+	def create_items(item_name, amount=1)
 		#Instantiate the ItemFactory.
 		factory = ItemFactory.instance
 		#Create the desired items.
-		new_items = factory.createItems(item_name, amount, instances)
+		new_items = factory.createItems(item_name, amount)
 		for item in new_items
 			@current_player.take(item)
 		end

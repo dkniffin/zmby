@@ -75,12 +75,20 @@ class Character < Movable
 			if item.name == item_name.downcase
 				total_amount += item.count
 				if total_amount >= amount
-					puts "true"
 					return true
 				end
 			end
 		end
-		puts "false"
 		false
+	end
+
+	def item_amount_in_inventory(item_name)
+		total_amount = 0
+		@inventory.each do |item|
+			if item.name == item_name.downcase
+				total_amount += item.count
+			end
+		end
+		total_amount
 	end
 end
