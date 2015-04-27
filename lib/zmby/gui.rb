@@ -24,7 +24,7 @@ module Zmby
 			@font = Gosu::Font.new(self, Gosu::default_font_name, 20)
 
 			@wood_image = Gosu::Image.new(self, "assets/ui/wood.png")
-			@water_image = Gosu::Image.new(self, "assets/ui/water_bottle.png")
+			@food_image = Gosu::Image.new(self, "assets/ui/food.png")
 			@gas_image = Gosu::Image.new(self, "assets/ui/gas_can.png")
 			@medkits_image = Gosu::Image.new(self, "assets/ui/medkit.png")
 			@ammo_image = Gosu::Image.new(self, "assets/ui/ammo.png")
@@ -105,7 +105,7 @@ module Zmby
 
 			ui_text_color = Gosu::Color::argb(0xff8A0707)
 			draw_resources([[@wood_image, player.inventory_count("scrap")],
-						 [@water_image, player.inventory_count("food")],
+						 [@food_image, player.inventory_count("food")],
 						 [@gas_image, player.inventory_count("gas")],
 						 [@medkits_image, player.inventory_count("medicine")],
 						 [@ammo_image, player.inventory_count("ammo")]
