@@ -25,30 +25,30 @@ class ItemFactory
 	#amount is the stack number of the item.
 	#instances is the number of copies of the item you want.
 	#Example: createItem("Ammo", 20, 3) will create 3 ammo objects, with 20 bullets in each.
-	def createItems(item_name, amount=1, instances=1)
+	def createItems(item_name, amount=1)
 
-		new_items = []
+		new_item = nil	#Current new item created.
+		new_items = []	#Array of all the items created.
 
-		instances.times do
-
+		while true
 			case item_name.downcase
 			# Stackable resources.
 			when "medicine"
-				new_items.push(Medicine.new(amount))
+				new_item = Medicine.new(amount)
 			when "food"
-				new_items.push(Food.new(amount))
+				new_item = Food.new(amount)
 			when "ammo"
-				new_items.push(Ammo.new(amount))
+				new_item = Ammo.new(amount)
 			when "gas"
-				new_items.push(Gas.new(amount))
+				new_item = Gas.new(amount)
 			when "scrap"
-				new_items.push(Scrap.new(amount))
+				new_item = Scrap.new(amount)
 
 			# Weapons.
 			when "knife"
-				new_items.push(Knife.new(amount))
+				new_item = Knife.new(amount)
 			when "pistol"
-				new_items.push(Pistol.new(amount))
+				new_item = Pistol.new(amount)
 
 			# Tools.
 
@@ -59,8 +59,14 @@ class ItemFactory
 				puts "Could not create item(s): #{item_name}."
 				break
 			end
-		end
 
-		new_items
+			new_items.push(new_item)
+
+			if new_item.count < amount
+				amount -= new_item.count
+			else
+				return new_items
+			end
+		end
 	end
 end

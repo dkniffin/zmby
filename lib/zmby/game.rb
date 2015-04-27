@@ -79,27 +79,25 @@ class Game
 		out
 	end
 
-	##
-	#CURRENTLY DEPREACATED AND NONFUNCTIONAL
-	##
-	def fortify(scrap_usage = 0)
-		#TODO: Needs to search through inventory for the Scrap "stack" and modify that
-		#Rather than the current variable it's using.
-		if (scrap_usage <= 0)
-			puts "Need to put in some scrap to fortify!"
+	def fortify(scrap_usage=5)
+		#Guard condition: The player lacks a hammer.
+		if !@current_player.in_inventory?("hammer")
+			puts "You don't have a hammer!"
 			return
 		end
-		if (scrap_usage > @current_player.scrap)
-			puts "You don't have that much scrap!"
+
+		#Guard condition: The player lacks the necessary scrap.
+		if !@current_player.in_inventory?("scrap", scrap_usage)
+			puts "You don't have enough scrap!"
 			return
 		end
 
 		current_location = @map.get_location_of(@current_player)
-		@current_player.scrap -= scrap_usage
+		@current_player.drop("scrap", scrap_usage)
 		current_location.fort_level += scrap_usage
 
 		if (currentLocation.fort_level >= 100)
-			victory_end(@current_player)
+			victory_end(@current_player.name)
 		else
 			action
 			"You fortified your location. It's fortifcation level is now #{current_location.fort_level}"
@@ -117,11 +115,11 @@ class Game
 	end
 
 	# Testing function.
-	def create_items(item_name, amount=1, instances=1)
+	def create_items(item_name, amount=1)
 		#Instantiate the ItemFactory.
 		factory = ItemFactory.instance
 		#Create the desired items.
-		new_items = factory.createItems(item_name, amount, instances)
+		new_items = factory.createItems(item_name, amount)
 		for item in new_items
 			@current_player.take(item)
 		end

@@ -2,7 +2,7 @@ require_relative 'movable'
 require_relative 'item'
 
 class Character < Movable
-	attr_accessor :current_health, :max_health, :medicine, :food, :ammo, :gas, :scrap, :image
+	attr_accessor :current_health, :max_health, :image
 	attr_reader :inventory, :name
 	INVENTORY_SIZE = 20
 
@@ -14,13 +14,6 @@ class Character < Movable
 		@name = name
 
 		@image = image
-
-		#General Resources
-		@medicine = 0
-		@food = 0
-		@ammo = 0
-		@gas = 0
-		@scrap = 0
 	end
 
 	def health
@@ -80,7 +73,7 @@ class Character < Movable
 	#in_inventory? will search across the player's inventory, and check if
 	# the player has "amount" of "item_name". This will search across
 	# multiple stacks.
-	def in_inventory?(item_name, amount)
+	def in_inventory?(item_name, amount=1)
 		total_amount = 0
 		@inventory.each do |item|
 			if item.name == item_name.downcase
@@ -91,5 +84,15 @@ class Character < Movable
 			end
 		end
 		false
+	end
+
+	def item_amount_in_inventory(item_name)
+		total_amount = 0
+		@inventory.each do |item|
+			if item.name == item_name.downcase
+				total_amount += item.count
+			end
+		end
+		total_amount
 	end
 end
