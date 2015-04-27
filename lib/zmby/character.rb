@@ -85,14 +85,4 @@ class Character < Movable
 		end
 		false
 	end
-
-	def item_amount_in_inventory(item_name)
-		total_amount = 0
-		@inventory.each do |item|
-			if item.name == item_name.downcase
-				total_amount += item.count
-			end
-		end
-		total_amount
-	end
 end

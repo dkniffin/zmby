@@ -104,11 +104,11 @@ module Zmby
 			@top_bar_image.draw(0,5,100)
 
 			ui_text_color = Gosu::Color::argb(0xff8A0707)
-			draw_resources([[@wood_image, player.item_amount_in_inventory("scrap")],
-						 [@water_image, player.item_amount_in_inventory("food")],
-						 [@gas_image, player.item_amount_in_inventory("gas")],
-						 [@medkits_image, player.item_amount_in_inventory("medicine")],
-						 [@ammo_image, player.item_amount_in_inventory("ammo")]
+			draw_resources([[@wood_image, player.item_count("scrap")],
+						 [@water_image, player.item_count("food")],
+						 [@gas_image, player.item_count("gas")],
+						 [@medkits_image, player.item_count("medicine")],
+						 [@ammo_image, player.item_count("ammo")]
 						], 20, ui_text_color)
 
 			player_indicator_str = "Player: #{player.name}"
