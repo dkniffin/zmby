@@ -55,6 +55,10 @@ class Game
 		@current_player.health
 	end
 
+	def eat
+		@current_player.eat
+	end
+
 	# def map
 	# 	@map.render(@current_player.x,@current_player.y)
 	# end
@@ -106,11 +110,6 @@ class Game
 		end
 	end
 
-	def victory_end(winning_player)
-		puts "#{winning_player} has established a base of operations. We win!"
-		# TODO: End the game, I don't actually know how.
-	end
-
 	# Testing function.
 	def drop(item_name, amount)
 		@current_player.drop(item_name, amount)
@@ -128,6 +127,13 @@ class Game
 	end
 
 	private
+
+		def notify
+			for player in @players
+				player.update
+			end
+		end
+
 		def get_position
 			"#{@current_player.x}, #{@current_player.y}"
 		end
@@ -208,6 +214,11 @@ class Game
 		# Given a file name, load the map
 		def load_map(window,map)
 			@map = Map.new(window, JSON.load(File.open(map)), File.dirname(map))
+		end
+
+		def victory_end(winning_player)
+			puts "#{winning_player} has established a base of operations. We win!"
+			# TODO: End the game, I don't actually know how.
 		end
 end
 

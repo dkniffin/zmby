@@ -123,4 +123,8 @@ class Character < Movable
 		end
 		false
 	end
+
+	def update
+		puts "#{@name} has been notified."
+	end
 end
