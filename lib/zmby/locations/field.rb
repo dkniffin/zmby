@@ -1,6 +1,6 @@
 class Field < Location
 	def initialize
-		super
 		@combat_chance = 0.3
+		super
 	end
 end

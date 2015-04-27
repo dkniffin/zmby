@@ -29,7 +29,7 @@ class Character < Movable
 	end
 
 	def inventory_count(item_name)
-		@inventory.select{|i| i.name == item_name}.length
+		@inventory.select{|i| i.name == item_name}.map{|i| i.count}.reduce(:+) || 0
 	end
 
 	def take(new_item)

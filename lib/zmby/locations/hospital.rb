@@ -1,7 +1,7 @@
 class Hospital < Location
 	def initialize
-		super
-		@search_chance[:medicine] = 0.8
+		@max_supply = {:medicine => 80}
 		@combat_chance = 0.5
+		super
 	end
 end

@@ -1,9 +1,8 @@
 class GasStation < Location
 	def initialize
-		super
-		@supply = rand(50..100) # Gallons
-		@search_chance[:gas] = 1
+		@max_supply = {:gas => 100}
 		@combat_chance = 0.1
+		super
 	end
 	def search
 		@supply -= 15

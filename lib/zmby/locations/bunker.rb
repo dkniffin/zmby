@@ -1,8 +1,6 @@
 class Bunker < Location
 	def initialize
+		@max_supply = {:food => 25, :medicine => 25}
 		super
-		@search_chance[:weapons] = 0.5
-		@search_chance[:food] = 0.3
-		@search_chance[:medicine] = 0.3
 	end
 end

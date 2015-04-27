@@ -1,7 +1,7 @@
 class Supermarket < Location
 	def initialize
-		super
-		@search_chance[:food] = 0.9
+		@max_supply = {:food => 100}
 		@combat_chance = 0.01
+		super
 	end
 end

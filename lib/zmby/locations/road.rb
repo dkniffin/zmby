@@ -1,8 +1,7 @@
 class Road < Location
 	def initialize
-		super
-		@search_chance[:vehicles] = 0.7
-		@search_chance[:gas] = 0.5
+		@max_supply = {:gas => 50}
 		@combat_chance = 0.15
+		super
 	end
 end

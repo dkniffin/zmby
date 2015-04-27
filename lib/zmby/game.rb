@@ -74,9 +74,11 @@ class Game
 	end
 
 	def search
-		out = @current_player.take(@map.get_location_of(@current_player).search)
+		items = @map.get_location_of(@current_player).search
+		puts "Found: "
+		pp items
+		items.each{|i|@current_player.take(i)}
 		action
-		out
 	end
 
 	def fortify(scrap_usage=5)

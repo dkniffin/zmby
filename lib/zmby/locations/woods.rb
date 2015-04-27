@@ -1,15 +1,14 @@
 class Woods < Location
 	def initialize
-		super
-		@supply = rand(50..100)
-		@search_chance[:scrap] = 1
+		@max_supply = {:scrap => 70}
 		@combat_chance = 0.2
+		super
 	end
 	def search
-		if @supply > 10
-			@supply -= 1
+		if @current_supply[:scrap] > 10
+			@current_supply[:scrap] -= 3
 			# TODO: return materials
-			ItemFactory.instance.createItem(:scrap)
+			ItemFactory.instance.createItems("scrap",3)
 		end
 	end
 end
