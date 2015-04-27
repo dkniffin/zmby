@@ -117,10 +117,16 @@ module Zmby
 			@font.draw(player_indicator_str, @window_width - (str_width + 5), 10, 101, 1.0, 1.0, ui_text_color)
 
 			# Health bar
-			draw_bar(40,5,100,20,
+			draw_bar(5,40,100,20,
 				Gosu::Color::GREEN,
 				Gosu::Color::RED,
 				@game.current_player.health_percent)
+
+			# Hunger bar
+			draw_bar(5,65,100,20,
+				Gosu::Color::WHITE,
+				Gosu::Color::GRAY,
+				@game.current_player.hunger_percent)
 		end
 
 		def draw_resources(resources,start_pos,text_color)
@@ -133,21 +139,21 @@ module Zmby
 			end
 		end
 
-		def draw_bar(top,left,width,height,full_color,empty_color,percent)
+		def draw_bar(x,y,width,height,full_color,empty_color,percent)
 			full_w = percent * width
-			bottom = top + height
+			bottom = y + height
 			self.draw_quad(
-				left,top,full_color,
-				left + full_w,top,full_color,
-				left + full_w,bottom,full_color,
-				left,bottom,full_color,
+				x,y,full_color,
+				x + full_w,y,full_color,
+				x + full_w,bottom,full_color,
+				x,bottom,full_color,
 				9999
 				)
 			self.draw_quad(
-				left + full_w,top,empty_color,
-				left + width,top,empty_color,
-				left + width,bottom,empty_color,
-				left + full_w,bottom,empty_color,
+				x + full_w,y,empty_color,
+				x + width,y,empty_color,
+				x + width,bottom,empty_color,
+				x + full_w,bottom,empty_color,
 				9999
 				)
 		end

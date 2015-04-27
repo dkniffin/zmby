@@ -38,6 +38,10 @@ class Character < Movable
 		"#{@current_hunger} / #{@max_hunger}"
 	end
 
+	def hunger_percent
+		@current_hunger.to_f / @max_hunger.to_f
+	end
+
 	def get_hungry(val=HUNGER_TICK)
 		#get more hungry.
 		if current_hunger > 0
