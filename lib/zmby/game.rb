@@ -139,6 +139,7 @@ class Game
 
 		def action
 			@actions -= 1
+			@current_player.get_hungry
 			random_event
 			if @actions.zero?
 				new_turn
