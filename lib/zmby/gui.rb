@@ -28,6 +28,9 @@ module Zmby
 			@gas_image = Gosu::Image.new(self, "assets/ui/gas_can.png")
 			@medkits_image = Gosu::Image.new(self, "assets/ui/medkit.png")
 			@ammo_image = Gosu::Image.new(self, "assets/ui/ammo.png")
+
+			@health_image = Gosu::Image.new(self, "assets/ui/health.png")
+			@hunger_image = Gosu::Image.new(self, "assets/ui/hunger.png")
 		end
 
 		def button_down(id)
@@ -117,13 +120,15 @@ module Zmby
 			@font.draw(player_indicator_str, @window_width - (str_width + 5), 10, 101, 1.0, 1.0, ui_text_color)
 
 			# Health bar
-			draw_bar(5,40,100,20,
+			@health_image.draw(5,40,99)
+			draw_bar(30,40,100,20,
 				Gosu::Color::GREEN,
 				Gosu::Color::RED,
 				@game.current_player.health_percent)
 
 			# Hunger bar
-			draw_bar(5,65,100,20,
+			@hunger_image.draw(5,65,99)
+			draw_bar(30,65,100,20,
 				Gosu::Color::WHITE,
 				Gosu::Color::GRAY,
 				@game.current_player.hunger_percent)
