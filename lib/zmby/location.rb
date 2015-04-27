@@ -1,14 +1,13 @@
 class Location
 	attr_accessor :fort_level
+	@@MAX_SUPPLY = {}
 	def initialize
-		@search_chance = {
-			:medical_supplies => 0,
-			:weapons => 0,
-			:ammo => 0,
-			:food => 0,
-			:vehicles => 0,
-			:gas => 0,
-			:materials => 0
+		# Setup max
+		@current_supply = @@MAX_SUPPLY.reduce({}){|item,count| hash.merge(item => count*rand(0.8..1.0)) }
+
+		@weapon_chance = {
+			:knife => 0.1,
+			:pistol => 0.1
 		}
 		@fort_level = 0
 		@combat_chance = 0
@@ -17,11 +16,9 @@ class Location
 		LocationTypeMap.class_to_char(self.class)
 	end
 	def search
-		@search_chance.each do |t,p|
+		@current_supply.each do |t,p|
 			if rand < p
-				puts "Found #{t}"
-			else
-				puts "Did not find #{t}"
+				ItemFactory.createItems(p.to_s,)
 			end
 		end
 	end

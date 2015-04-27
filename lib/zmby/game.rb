@@ -74,7 +74,7 @@ class Game
 	end
 
 	def search
-		out = @map.get_location_of(@current_player).search
+		out = @current_player.take(@map.get_location_of(@current_player).search)
 		action
 		out
 	end
