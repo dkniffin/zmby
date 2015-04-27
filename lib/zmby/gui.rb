@@ -111,9 +111,16 @@ module Zmby
 						 [@ammo_image, player.inventory_count("ammo")]
 						], 20, ui_text_color)
 
+			# Current player
 			player_indicator_str = "Player: #{player.name}"
 			str_width = player_indicator_str.length * 10
 			@font.draw(player_indicator_str, @window_width - (str_width + 5), 10, 101, 1.0, 1.0, ui_text_color)
+
+			# Health bar
+			draw_bar(40,5,100,20,
+				Gosu::Color::GREEN,
+				Gosu::Color::RED,
+				@game.current_player.health_percent)
 		end
 
 		def draw_resources(resources,start_pos,text_color)
@@ -124,6 +131,25 @@ module Zmby
 				@font.draw("#{count}", ui_x, 10, 101, 1.0, 1.0, text_color)
 				ui_x += 30
 			end
+		end
+
+		def draw_bar(top,left,width,height,full_color,empty_color,percent)
+			full_w = percent * width
+			bottom = top + height
+			self.draw_quad(
+				left,top,full_color,
+				left + full_w,top,full_color,
+				left + full_w,bottom,full_color,
+				left,bottom,full_color,
+				9999
+				)
+			self.draw_quad(
+				left + full_w,top,empty_color,
+				left + width,top,empty_color,
+				left + width,bottom,empty_color,
+				left + full_w,bottom,empty_color,
+				9999
+				)
 		end
 	end
 end

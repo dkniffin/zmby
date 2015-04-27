@@ -19,6 +19,9 @@ class Character < Movable
 	def health
 		"#{@current_health} / #{@max_health}"
 	end
+	def health_percent
+		@current_health.to_f / @max_health.to_f
+	end
 
 	def heal(val)
 		@current_health += val
