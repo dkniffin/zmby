@@ -163,7 +163,6 @@ class Game
 
 		def random_event
 			if @map.get_location_of(@current_player).combat?
-				puts "Start combat"
 				Combat.fight(@current_player)
 			end
 		end
