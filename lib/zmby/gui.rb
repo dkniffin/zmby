@@ -52,6 +52,8 @@ module Zmby
 					@game.heal
 				when Gosu::KbI
 					@game.inventory
+				when Gosu::KbE
+					@game.eat
 				end
 			else
 				case id
