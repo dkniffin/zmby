@@ -6,6 +6,7 @@ class Character < Movable
 	attr_reader :inventory, :name
 	INVENTORY_SIZE = 20
 	HUNGER_TICK = 2
+	DAMAGE_RANGE = (10..15)
 
 	def initialize(name, image, *args)
 		super
@@ -123,6 +124,10 @@ class Character < Movable
 		end
 		false
 	end
+
+	def damage_bonus
+    @inventory.max {|i| w.class::DAMAGE_BONUS } || 0
+  end
 
 	def update
 		puts "#{@name} has been notified."

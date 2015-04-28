@@ -3,6 +3,7 @@ require 'singleton'
 require_relative 'character'
 require_relative 'map'
 require_relative 'itemFactory'
+require_relative 'combat'
 
 class Game
 	include Singleton
@@ -163,7 +164,7 @@ class Game
 		def random_event
 			if @map.get_location_of(@current_player).combat?
 				puts "Start combat"
-				# TODO: Start a combat
+				Combat.fight(@current_player)
 			end
 		end
 

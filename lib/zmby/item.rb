@@ -10,6 +10,8 @@ class Item
 
 	attr_reader :count
 	STACKCAP = 1
+	DAMAGE_BONUS = 0
+
 	def initialize(initial_count=1)
 		initial_count = initial_count.to_i
 		if initial_count > self.class::STACKCAP
@@ -55,6 +57,9 @@ class Item
 		end
 	end
 
+	def damage_bonus
+		self.class::DAMAGE_BONUS
+	end
 	def capped?
 		return @count == self.class::STACKCAP
 	end
